@@ -5,13 +5,23 @@ using UnityEngine;
 public class Player : MonoBehaviour
 
 {
+    public static Player instance;
+
     [SerializeField] int moveSpeed;
 
     [SerializeField] Rigidbody2D palyerRigidbody;
     [SerializeField] Animator playerAnimator;
     void Start()
     {
-        
+        if(instance != null && instance != this)
+        {
+            Destroy(this.gameObject);
+        } else
+        {
+            instance = this;
+        }
+
+        DontDestroyOnLoad(gameObject);
     }
 
     // Update is called once per frame
