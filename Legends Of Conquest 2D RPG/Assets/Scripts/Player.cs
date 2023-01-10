@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
+
 {
+    [SerializeField] int moveSpeed;
+
     [SerializeField] Rigidbody2D palyerRigidbody;
     [SerializeField] Animator playerAnimator;
     void Start()
@@ -17,7 +20,7 @@ public class Player : MonoBehaviour
         float horizontalMoviment = Input.GetAxisRaw("Horizontal");
         float verticalMoviment = Input.GetAxisRaw("Vertical");
 
-        palyerRigidbody.velocity = new Vector2(horizontalMoviment, verticalMoviment);
+        palyerRigidbody.velocity = new Vector2(horizontalMoviment, verticalMoviment) * moveSpeed;
 
         playerAnimator.SetFloat("movementX", palyerRigidbody.velocity.x);
         playerAnimator.SetFloat("movementY", palyerRigidbody.velocity.y);
