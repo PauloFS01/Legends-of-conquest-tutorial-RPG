@@ -7,6 +7,8 @@ public class Player : MonoBehaviour
 {
     public static Player instance;
 
+    public string transitionName;
+
     [SerializeField] int moveSpeed;
 
     [SerializeField] Rigidbody2D palyerRigidbody;

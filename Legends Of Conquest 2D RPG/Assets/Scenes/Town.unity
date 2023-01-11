@@ -303,8 +303,8 @@ GameObject:
   - component: {fileID: 1906721260}
   - component: {fileID: 1906721265}
   - component: {fileID: 1906721262}
-  - component: {fileID: 1906721264}
   - component: {fileID: 1906721266}
+  - component: {fileID: 1906721264}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -412,6 +412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7673e21038780f347888d931d95d7d25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  transitionName: 
   moveSpeed: 6
   palyerRigidbody: {fileID: 1906721262}
   playerAnimator: {fileID: 1906721266}
@@ -516,6 +517,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1651386287, guid: ca526b910e7e17e44a02898ac8bbd11e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8463742528713834224, guid: ca526b910e7e17e44a02898ac8bbd11e, type: 3}
+      propertyPath: sceneToLoad
+      value: Mountains
+      objectReference: {fileID: 0}
+    - target: {fileID: 8463742528713834224, guid: ca526b910e7e17e44a02898ac8bbd11e, type: 3}
+      propertyPath: transitionAreaName
+      value: Mountains - 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8463742528713834227, guid: ca526b910e7e17e44a02898ac8bbd11e, type: 3}
       propertyPath: m_RootOrder
       value: 4

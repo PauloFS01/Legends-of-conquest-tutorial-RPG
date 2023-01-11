@@ -130,25 +130,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8463742528713834224, guid: ca526b910e7e17e44a02898ac8bbd11e, type: 3}
-      propertyPath: sceneToLoad
-      value: Town
-      objectReference: {fileID: 0}
-    - target: {fileID: 8463742528713834226, guid: ca526b910e7e17e44a02898ac8bbd11e, type: 3}
-      propertyPath: m_Size.y
-      value: 3.1551437
-      objectReference: {fileID: 0}
-    - target: {fileID: 8463742528713834226, guid: ca526b910e7e17e44a02898ac8bbd11e, type: 3}
-      propertyPath: m_Offset.y
-      value: 0.2047584
-      objectReference: {fileID: 0}
     - target: {fileID: 8463742528713834227, guid: ca526b910e7e17e44a02898ac8bbd11e, type: 3}
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8463742528713834227, guid: ca526b910e7e17e44a02898ac8bbd11e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.285
+      value: 9.38
       objectReference: {fileID: 0}
     - target: {fileID: 8463742528713834227, guid: ca526b910e7e17e44a02898ac8bbd11e, type: 3}
       propertyPath: m_LocalPosition.y
