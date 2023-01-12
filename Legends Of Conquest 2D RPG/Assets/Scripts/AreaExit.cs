@@ -7,9 +7,12 @@ public class AreaExit : MonoBehaviour
 {
     [SerializeField] string sceneToLoad;
     [SerializeField] string transitionAreaName;
-    void Start()
+    [SerializeField] AreaEnter theAreaEnter;
+
+
+    void Awake()
     {
-   
+        theAreaEnter.transitionAreaName = transitionAreaName;
     }
 
     // Update is called once per frame

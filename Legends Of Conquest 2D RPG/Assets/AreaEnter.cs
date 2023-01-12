@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class AreaEnter : MonoBehaviour
 {
-    [SerializeField] string transitionAreaName;
+    public string transitionAreaName;
+
     void Start()
     {
         if(transitionAreaName == Player.instance.transitionName)

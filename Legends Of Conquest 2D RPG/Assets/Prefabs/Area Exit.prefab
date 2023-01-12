@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be5e1b283e93abe4e81aa1477d181103, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transitionAreaName: Mountains - 1
+  transitionAreaName: 
 --- !u!1 &8463742528713834237
 GameObject:
   m_ObjectHideFlags: 0
@@ -119,3 +119,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneToLoad: Town
   transitionAreaName: Mountains - 1
+  theAreaEnter: {fileID: 1651386286}
