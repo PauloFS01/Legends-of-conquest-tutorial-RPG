@@ -7,17 +7,31 @@ public class AreaEnter : MonoBehaviour
 {
     public string transitionAreaName;
 
+    private Player playerClass;
     void Start()
     {
-        if(transitionAreaName == Player.instance.transitionName)
-        {
-            Player.instance.transform.position = transform.position;
-        }
+        StartCoroutine(WaitForPlayerClass());
     }
 
-    // Update is called once per frame
     void Update()
     {
         
+    }
+
+    private IEnumerator WaitForPlayerClass()
+    {
+        while (playerClass == null)
+        {
+            playerClass = FindObjectOfType<Player>();
+            yield return null;
+        }
+        PlayerPosition();
+    }
+    private void PlayerPosition()
+    {
+        if (transitionAreaName == Player.instance.transitionName)
+        {
+            Player.instance.transform.position = transform.position;
+        }
     }
 }
