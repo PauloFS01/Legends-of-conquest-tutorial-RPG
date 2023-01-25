@@ -36,6 +36,7 @@ public class DialogController : MonoBehaviour
                     if(currentSentences >= dialogSentences.Length)
                     {
                         dialogBox.SetActive(false);
+                        Player.instance.deactivateMovement = false;
                     }
                     else
                     {
@@ -58,6 +59,8 @@ public class DialogController : MonoBehaviour
         justStartedTotalk = true;
         dialogText.text = dialogSentences[currentSentences];
         dialogBox.SetActive(true);
+
+        Player.instance.deactivateMovement = true;
     }
 
     public bool IsDialogBoxActive()

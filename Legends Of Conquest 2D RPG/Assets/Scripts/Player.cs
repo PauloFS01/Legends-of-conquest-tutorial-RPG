@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
     private Vector3 leftBottomEdge;
     private Vector3 rightTopEdge;
 
+    public bool deactivateMovement = false;
+
     void Start()
     {
         if(instance != null && instance != this)
@@ -36,15 +38,26 @@ public class Player : MonoBehaviour
         float horizontalMoviment = Input.GetAxisRaw("Horizontal");
         float verticalMoviment = Input.GetAxisRaw("Vertical");
 
-        palyerRigidbody.velocity = new Vector2(horizontalMoviment, verticalMoviment) * moveSpeed;
+        if (deactivateMovement)
+        {
+            palyerRigidbody.velocity = Vector2.zero;
+        } else
+        {
+            palyerRigidbody.velocity = new Vector2(horizontalMoviment, verticalMoviment) * moveSpeed;
+        }
+
 
         playerAnimator.SetFloat("movementX", palyerRigidbody.velocity.x);
         playerAnimator.SetFloat("movementY", palyerRigidbody.velocity.y);
 
         if(horizontalMoviment == 1 || horizontalMoviment == -1 || verticalMoviment == 1 || verticalMoviment == -1)
         {
-            playerAnimator.SetFloat("lastX", horizontalMoviment);
-            playerAnimator.SetFloat("lastY", verticalMoviment);
+            if (!deactivateMovement)
+            {
+                playerAnimator.SetFloat("lastX", horizontalMoviment);
+                playerAnimator.SetFloat("lastY", verticalMoviment);
+            }
+
         }
 
         transform.position = new Vector3(
