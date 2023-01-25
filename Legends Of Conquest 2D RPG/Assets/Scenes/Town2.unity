@@ -249,12 +249,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sentences:
+  - '#Healer'
   - Hi this is Healer dialog
-  - Again healer from dialog
-  - Pretend tha is deamon but...
-  - This come from Healer
-  - Just another frase here
-  - And here comes one more!
+  - '#Jimmy'
+  - This is Jimmy
+  - '#Healer'
+  - Healer speak one more
+  - '#Jimmy'
+  - Jimmy Conversation
+  - '#Healer'
+  - Helaler again here!
+  - '#Jimmy'
+  - Deamon Jimmy end the conversation
 --- !u!61 &96039514
 BoxCollider2D:
   m_ObjectHideFlags: 0
