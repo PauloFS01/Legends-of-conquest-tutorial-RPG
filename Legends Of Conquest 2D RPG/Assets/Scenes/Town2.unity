@@ -484,6 +484,32 @@ PrefabInstance:
       objectReference: {fileID: 1281387086}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72ee421438a6859438896e52888e2ecb, type: 3}
+--- !u!1 &905369271 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 136642841079222244, guid: 72ee421438a6859438896e52888e2ecb, type: 3}
+  m_PrefabInstance: {fileID: 905369270}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &905369272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 905369271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47a2bd3c087e62f41a5fdeb2facf815a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerName: Jimmy
+  playerLevel: 1
+  currentXP: 36
+  maxHP: 100
+  currentHP: 0
+  maxMana: 30
+  currentMana: 0
+  dexterity: 10
+  defence: 30
 --- !u!1839735485 &1281387086 stripped
 Tilemap:
   m_CorrespondingSourceObject: {fileID: 7181401372054119375, guid: d3e73c181eeb289438e1f88f87e3fbd5, type: 3}
