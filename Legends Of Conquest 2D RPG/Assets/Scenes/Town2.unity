@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 96039512}
   - component: {fileID: 96039514}
   - component: {fileID: 96039513}
+  - component: {fileID: 96039515}
   m_Layer: 0
   m_Name: healer
   m_TagString: Untagged
@@ -287,6 +288,30 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.96924, y: 2.3194952}
   m_EdgeRadius: 0
+--- !u!114 &96039515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 96039509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47a2bd3c087e62f41a5fdeb2facf815a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerName: Sara
+  maxLevel: 50
+  playerLevel: 1
+  currentXP: 0
+  baseLevelXp: 100
+  maxHP: 100
+  currentHP: 0
+  maxMana: 30
+  currentMana: 30
+  dexterity: 0
+  defence: 0
+  xpForEachLevel: 
 --- !u!1001 &107172978
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -356,6 +381,51 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c69d82b4ff12bcf49b627c52c2a64a90, type: 3}
+--- !u!1 &745689566
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 745689568}
+  - component: {fileID: 745689567}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &745689567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745689566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 927c0baca0d2cf54c8c9e13e86cc65b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStats: []
+--- !u!4 &745689568
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745689566}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.5585017, y: 9.125037, z: -0.008141009}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &803946623
 GameObject:
   m_ObjectHideFlags: 0
@@ -502,14 +572,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerName: Jimmy
+  maxLevel: 50
   playerLevel: 1
   currentXP: 36
+  baseLevelXp: 100
   maxHP: 100
   currentHP: 0
   maxMana: 30
   currentMana: 0
   dexterity: 10
   defence: 30
+  xpForEachLevel: 
 --- !u!1839735485 &1281387086 stripped
 Tilemap:
   m_CorrespondingSourceObject: {fileID: 7181401372054119375, guid: d3e73c181eeb289438e1f88f87e3fbd5, type: 3}
