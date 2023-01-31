@@ -8,6 +8,7 @@ public class MenuManager : MonoBehaviour
 {
     [SerializeField] Image imageToFade;
     [SerializeField] GameObject menu;
+    [SerializeField] GameObject[] statsButtons;
 
     public static MenuManager instance;
 
@@ -55,6 +56,14 @@ public class MenuManager : MonoBehaviour
             xpText[i].text = playerStats[i].currentXP.ToString() + "/" + playerStats[i].xpForEachLevel[playerStats[i].playerLevel];
             xpSlider[i].maxValue = playerStats[i].xpForEachLevel[playerStats[i].playerLevel];
             xpSlider[i].value = playerStats[i].currentXP;
+        }
+    }
+
+    public void StatsMenu()
+    {
+        for(int i = 0; i < playerStats.Length; i++)
+        {
+            statsButtons[i].SetActive(true);
         }
     }
 
