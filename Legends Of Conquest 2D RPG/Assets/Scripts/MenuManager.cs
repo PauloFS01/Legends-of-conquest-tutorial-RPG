@@ -58,6 +58,12 @@ public class MenuManager : MonoBehaviour
         }
     }
 
+    public void QuitGame()
+    {
+        Application.Quit();
+        Debug.Log("Quit from game");
+    }
+
     public void FadeImage()
     {
         imageToFade.GetComponent<Animator>().SetTrigger("Start fading");
