@@ -22,8 +22,8 @@ public class PlayerStats : MonoBehaviour
     public int maxMana=30;
     public int currentMana=30;
 
-    [SerializeField] int dexterity;
-    [SerializeField] int defence;
+    public int dexterity;
+    public int defence;
 
     public int[] xpForEachLevel;
     void Start()
