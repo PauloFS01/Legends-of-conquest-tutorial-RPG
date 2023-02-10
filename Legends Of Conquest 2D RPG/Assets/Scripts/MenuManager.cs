@@ -21,6 +21,9 @@ public class MenuManager : MonoBehaviour
     [SerializeField] Text statName, statHP, statMana, statDex, statDef;
     [SerializeField] Image characterStatImage;
 
+    [SerializeField] GameObject itemSlotContainer;
+    [SerializeField] Transform itemSlotContainerParent;
+
     private void Start()
     {
         instance = this;
@@ -100,5 +103,20 @@ public class MenuManager : MonoBehaviour
     public void FadeImage()
     {
         imageToFade.GetComponent<Animator>().SetTrigger("Start fading");
+    }
+
+    public void UpdateItemsInventory()
+    {
+        foreach (Transform itemsSlot in itemSlotContainerParent)
+        {
+            Destroy(itemsSlot.gameObject);
+        };
+        foreach(ItemsManager item in Inventory.instance.GetItemsList())
+        {
+            RectTransform itemSlot = Instantiate(itemSlotContainer, itemSlotContainerParent).GetComponent<RectTransform>();
+
+            //Image itemImage = itemSlot.Find("Items image").GetComponent<Image>();
+            //itemImage.sprite = item.itemsImage;
+        }
     }
 }
