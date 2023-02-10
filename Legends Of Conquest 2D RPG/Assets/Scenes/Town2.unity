@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 18826316}
   - component: {fileID: 18826315}
   - component: {fileID: 18826314}
+  - component: {fileID: 18826317}
   m_Layer: 0
   m_Name: 'Golden Axe '
   m_TagString: Untagged
@@ -229,6 +230,22 @@ Transform:
   m_Father: {fileID: 1977811401}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 34.456}
+--- !u!58 &18826317
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 18826313}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.00000047683716}
+  serializedVersion: 2
+  m_Radius: 0.64
 --- !u!1 &30884378
 GameObject:
   m_ObjectHideFlags: 0
@@ -1131,6 +1148,7 @@ GameObject:
   - component: {fileID: 281085927}
   - component: {fileID: 281085926}
   - component: {fileID: 281085925}
+  - component: {fileID: 281085928}
   m_Layer: 0
   m_Name: Silver Axe
   m_TagString: Untagged
@@ -1226,6 +1244,22 @@ Transform:
   m_Father: {fileID: 1977811401}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 34.456}
+--- !u!58 &281085928
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 281085924}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0000009536743, y: 0.00000047683716}
+  serializedVersion: 2
+  m_Radius: 0.64
 --- !u!1 &299286028
 GameObject:
   m_ObjectHideFlags: 0
@@ -3623,6 +3657,7 @@ GameObject:
   m_Component:
   - component: {fileID: 745689568}
   - component: {fileID: 745689567}
+  - component: {fileID: 745689569}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3660,6 +3695,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &745689569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745689566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5228e2a8d0db9a428e1be882ec5e589, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &750194513
 GameObject:
   m_ObjectHideFlags: 0
@@ -4297,6 +4344,7 @@ GameObject:
   - component: {fileID: 926852491}
   - component: {fileID: 926852490}
   - component: {fileID: 926852489}
+  - component: {fileID: 926852492}
   m_Layer: 0
   m_Name: Golden Armor
   m_TagString: Untagged
@@ -4392,6 +4440,22 @@ Transform:
   m_Father: {fileID: 1977811401}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 34.456}
+--- !u!58 &926852492
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 926852488}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.00000047683716}
+  serializedVersion: 2
+  m_Radius: 0.64
 --- !u!1 &949598621
 GameObject:
   m_ObjectHideFlags: 0
@@ -7363,6 +7427,7 @@ GameObject:
   - component: {fileID: 1461006753}
   - component: {fileID: 1461006752}
   - component: {fileID: 1461006751}
+  - component: {fileID: 1461006754}
   m_Layer: 0
   m_Name: Mana Potion
   m_TagString: Untagged
@@ -7458,6 +7523,22 @@ Transform:
   m_Father: {fileID: 1977811401}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 34.456}
+--- !u!58 &1461006754
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1461006750}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.64
 --- !u!1 &1490627968
 GameObject:
   m_ObjectHideFlags: 0
@@ -8069,6 +8150,7 @@ GameObject:
   - component: {fileID: 1608036947}
   - component: {fileID: 1608036946}
   - component: {fileID: 1608036945}
+  - component: {fileID: 1608036948}
   m_Layer: 0
   m_Name: HP Potion
   m_TagString: Untagged
@@ -8164,6 +8246,22 @@ Transform:
   m_Father: {fileID: 1977811401}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 34.456}
+--- !u!58 &1608036948
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608036944}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.64
 --- !u!1 &1608182935
 GameObject:
   m_ObjectHideFlags: 0
@@ -10261,6 +10359,7 @@ GameObject:
   - component: {fileID: 2063144261}
   - component: {fileID: 2063144260}
   - component: {fileID: 2063144262}
+  - component: {fileID: 2063144263}
   m_Layer: 0
   m_Name: Silver Armor
   m_TagString: Untagged
@@ -10356,6 +10455,22 @@ MonoBehaviour:
   affectType: 0
   weaponDexterity: 0
   armorDefence: 6
+--- !u!58 &2063144263
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2063144259}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.00000047683716}
+  serializedVersion: 2
+  m_Radius: 0.64
 --- !u!1 &2066434295
 GameObject:
   m_ObjectHideFlags: 0

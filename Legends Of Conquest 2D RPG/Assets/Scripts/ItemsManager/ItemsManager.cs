@@ -17,14 +17,29 @@ public class ItemsManager : MonoBehaviour
     public AffectType affectType;
 
     public int weaponDexterity, armorDefence;
+
     void Start()
     {
-        
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            // print("This is: " + itemName);
+            Inventory.instance.AddItems(this);
+            SelfDestroy();
+        }
+    }
+
+    public void SelfDestroy()
+    {
+        Destroy(gameObject);
     }
 }
