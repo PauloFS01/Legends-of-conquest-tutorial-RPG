@@ -18,6 +18,9 @@ public class ItemsManager : MonoBehaviour
 
     public int weaponDexterity, armorDefence;
 
+    public bool isStackable;
+    public int amount;
+
     void Start()
     {
     }

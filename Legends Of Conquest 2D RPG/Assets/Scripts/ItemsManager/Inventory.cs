@@ -17,9 +17,27 @@ public class Inventory : MonoBehaviour
 
     public void AddItems(ItemsManager item)
     {
-        print(item.itemName + " has be added to inventory");
-        itemsList.Add(item);
-        print(itemsList.Count);
+        if (item.isStackable)
+        {
+            bool itemAlreadyInInventory = false;
+
+            foreach(ItemsManager itemInventory in itemsList)
+            {
+                if(itemInventory.itemName == item.itemName)
+                {
+                    itemInventory.amount += item.amount;
+                }
+            }
+
+            if (!itemAlreadyInInventory)
+            {
+                itemsList.Add(item);
+            }
+        }
+        else
+        {
+            itemsList.Add(item);
+        }
     }
 
     public List<ItemsManager> GetItemsList()
