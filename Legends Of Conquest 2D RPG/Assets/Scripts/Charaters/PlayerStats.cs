@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour
 {
+    public static PlayerStats instance;
+
     public string playerName;
 
     public Sprite characterImage;
@@ -28,6 +30,8 @@ public class PlayerStats : MonoBehaviour
     public int[] xpForEachLevel;
     void Start()
     {
+        instance = this;
+
         xpForEachLevel = new int[maxLevel];
         xpForEachLevel[1] = baseLevelXp;
 
@@ -67,6 +71,24 @@ public class PlayerStats : MonoBehaviour
             currentHP = maxHP;
 
             maxMana = Mathf.FloorToInt(maxMana * 1.06f);
+            currentMana = maxMana;
+        }
+    }
+
+    public void AddHp(int amountHPToAdd)
+    {
+        currentHP += amountHPToAdd;
+        if(currentHP > maxHP)
+        {
+            currentHP = maxHP;
+        }
+    }
+
+    public void AddMana(int amountManaToAdd)
+    {
+        currentMana += amountManaToAdd;
+        if (currentMana > maxMana)
+        {
             currentMana = maxMana;
         }
     }

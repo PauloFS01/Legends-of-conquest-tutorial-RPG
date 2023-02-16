@@ -24,6 +24,10 @@ public class MenuManager : MonoBehaviour
     [SerializeField] GameObject itemSlotContainer;
     [SerializeField] Transform itemSlotContainerParent;
 
+    public Text itemName, itemDesctiption;
+
+    public ItemsManager activeItem;
+
     private void Start()
     {
         instance = this;
@@ -93,18 +97,6 @@ public class MenuManager : MonoBehaviour
 
 
     }
-
-    public void QuitGame()
-    {
-        Application.Quit();
-        Debug.Log("Quit from game");
-    }
-
-    public void FadeImage()
-    {
-        imageToFade.GetComponent<Animator>().SetTrigger("Start fading");
-    }
-
     public void UpdateItemsInventory()
     {
         foreach (Transform itemSlot in itemSlotContainerParent)
@@ -120,15 +112,42 @@ public class MenuManager : MonoBehaviour
 
             //Text itemsAmoutText = itemSlot.Find("Amount Text").GetComponent<Text>();
 
-    /*        if(item.amount > 1)
-            {
-                itemsAmoutText.text = item.amount.ToString();
-            }else
-            {
-                itemsAmoutText.text = "";
-            }*/
+            /*        if(item.amount > 1)
+                    {
+                        itemsAmoutText.text = item.amount.ToString();
+                    }else
+                    {
+                        itemsAmoutText.text = "";
+                    }*/
 
+            itemSlot.GetComponent<ItemButton>().itemOnButton = item;
 
         }
     }
+    public void DiscartItem()
+    {
+        // print(activeItem.itemName);
+        Inventory.instance.RemoveItem(activeItem);
+        UpdateItemsInventory();
+    }
+
+    public void UseItem()
+    {
+        activeItem.UseItem();
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+        Debug.Log("Quit from game");
+    }
+
+    public void FadeImage()
+    {
+        imageToFade.GetComponent<Animator>().SetTrigger("Start fading");
+    }
+
+    
+
+
 }

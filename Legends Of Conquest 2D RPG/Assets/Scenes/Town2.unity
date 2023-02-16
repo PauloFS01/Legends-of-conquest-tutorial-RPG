@@ -6519,7 +6519,7 @@ GameObject:
   - component: {fileID: 1359529410}
   - component: {fileID: 1359529409}
   m_Layer: 5
-  m_Name: Description
+  m_Name: Label Description
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7490,7 +7490,7 @@ GameObject:
   - component: {fileID: 1608182938}
   - component: {fileID: 1608182937}
   m_Layer: 5
-  m_Name: Name
+  m_Name: Label Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8269,7 +8269,7 @@ GameObject:
   - component: {fileID: 1776944796}
   - component: {fileID: 1776944795}
   m_Layer: 5
-  m_Name: Use
+  m_Name: Button Use
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8339,7 +8339,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1776944796}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5961396348480855298}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: UseItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1776944796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9186,7 +9198,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1941810090
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9904,7 +9916,7 @@ GameObject:
   - component: {fileID: 2112708982}
   - component: {fileID: 2112708981}
   m_Layer: 5
-  m_Name: Discart
+  m_Name: Button Discart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9974,7 +9986,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2112708982}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5961396348480855298}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: DiscartItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2112708982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10183,7 +10207,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1559972152811685290, guid: 82300f8935b864a43b183878cd3838e9, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1559972152811685290, guid: 82300f8935b864a43b183878cd3838e9, type: 3}
       propertyPath: m_AnchorMin.x
@@ -10191,15 +10215,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1559972152811685290, guid: 82300f8935b864a43b183878cd3838e9, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1559972152811685290, guid: 82300f8935b864a43b183878cd3838e9, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 120
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1559972152811685290, guid: 82300f8935b864a43b183878cd3838e9, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 120
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1559972152811685290, guid: 82300f8935b864a43b183878cd3838e9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10231,11 +10255,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1559972152811685290, guid: 82300f8935b864a43b183878cd3838e9, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 60
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1559972152811685290, guid: 82300f8935b864a43b183878cd3838e9, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -60
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1559972152811685290, guid: 82300f8935b864a43b183878cd3838e9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -10551,6 +10575,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5961396347461591877, guid: 8cc67a24bdea63143986640052a77b68, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5961396348513066909, guid: 8cc67a24bdea63143986640052a77b68, type: 3}
       propertyPath: menu
       value: 
@@ -10568,6 +10596,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 596309286}
     - target: {fileID: 5961396348513066909, guid: 8cc67a24bdea63143986640052a77b68, type: 3}
+      propertyPath: itemName
+      value: 
+      objectReference: {fileID: 1894291954}
+    - target: {fileID: 5961396348513066909, guid: 8cc67a24bdea63143986640052a77b68, type: 3}
       propertyPath: statMana
       value: 
       objectReference: {fileID: 1641922568}
@@ -10575,6 +10607,10 @@ PrefabInstance:
       propertyPath: statName
       value: 
       objectReference: {fileID: 1490627970}
+    - target: {fileID: 5961396348513066909, guid: 8cc67a24bdea63143986640052a77b68, type: 3}
+      propertyPath: itemDesctiption
+      value: 
+      objectReference: {fileID: 1768756164}
     - target: {fileID: 5961396348513066909, guid: 8cc67a24bdea63143986640052a77b68, type: 3}
       propertyPath: hpText.Array.size
       value: 3

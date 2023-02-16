@@ -168,6 +168,7 @@ GameObject:
   - component: {fileID: 1559972152811685293}
   - component: {fileID: 1559972152811685292}
   - component: {fileID: 1559972152811685291}
+  - component: {fileID: 8540316455483689042}
   m_Layer: 5
   m_Name: Items Button
   m_TagString: Untagged
@@ -278,4 +279,29 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1559972152811685292}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8540316455483689042}
+        m_TargetAssemblyTypeName: ItemButton, Assembly-CSharp
+        m_MethodName: Press
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8540316455483689042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1559972152811685289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdf00a6c1712de345b41af1af7d43309, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemOnButton: {fileID: 0}
