@@ -29,6 +29,13 @@ public class PlayerStats : MonoBehaviour
 
     public int[] xpForEachLevel;
 
+    public string equipedWeaponName;
+    public string equipedArmorName;
+
+    public int weaponPower;
+    public int armorDefence;
+
+    public ItemsManager equipedWeapon, equipedArmor;
 
     void Start()
     {
@@ -93,5 +100,19 @@ public class PlayerStats : MonoBehaviour
         {
             currentMana = maxMana;
         }
+    }
+
+    public void EquipWeapon(ItemsManager weaponToEquip)
+    {
+        equipedWeapon = weaponToEquip;
+        equipedWeaponName = equipedWeapon.itemName;
+        weaponPower = equipedWeapon.weaponDexterity;
+    }
+
+    public void EquipArmor(ItemsManager armorToEquip)
+    {
+        equipedArmor = armorToEquip;
+        equipedArmorName = equipedArmor.itemName;
+        armorDefence = equipedArmor.armorDefence;
     }
 }

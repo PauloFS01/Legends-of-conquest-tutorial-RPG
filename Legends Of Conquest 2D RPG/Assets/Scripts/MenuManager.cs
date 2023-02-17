@@ -18,7 +18,8 @@ public class MenuManager : MonoBehaviour
     [SerializeField] Image[] characterImage;
     [SerializeField] GameObject[] characterPanel;
 
-    [SerializeField] Text statName, statHP, statMana, statDex, statDef;
+    [SerializeField] Text statName, statHP, statMana, statDex, statDef, equipedWeapons, statEquipedArmor;
+    [SerializeField] Text statWeaponPower, statsArmorDefence;
     [SerializeField] Image characterStatImage;
 
     [SerializeField] GameObject itemSlotContainer;
@@ -98,6 +99,11 @@ public class MenuManager : MonoBehaviour
 
         characterStatImage.sprite = playerSelected.characterImage;
 
+        equipedWeapons.text = playerSelected.equipedWeaponName;
+        statEquipedArmor.text = playerSelected.equipedArmorName;
+
+        statWeaponPower.text = playerSelected.weaponPower.ToString();
+        statsArmorDefence.text = playerSelected.armorDefence.ToString();
 
     }
     public void UpdateItemsInventory()

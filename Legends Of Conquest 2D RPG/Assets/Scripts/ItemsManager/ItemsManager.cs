@@ -35,6 +35,22 @@ public class ItemsManager : MonoBehaviour
                 selectCaracter.AddMana(amoutOfAffect);
             }
         }
+        else if(itemType == ItemType.Weapon)
+        {
+            if(selectCaracter.equipedWeaponName != "")
+            {
+                Inventory.instance.AddItems(selectCaracter.equipedWeapon);
+            }
+            selectCaracter.EquipWeapon(this);
+        }
+        else if (itemType == ItemType.Armor)
+        {
+            if (selectCaracter.equipedArmorName != "")
+            {
+                Inventory.instance.AddItems(selectCaracter.equipedArmor);
+            }
+            selectCaracter.EquipArmor(this);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
