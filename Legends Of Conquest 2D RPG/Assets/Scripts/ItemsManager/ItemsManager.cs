@@ -21,17 +21,18 @@ public class ItemsManager : MonoBehaviour
     public bool isStackable;
     public int amount;
 
-    public void UseItem()
+    public void UseItem(int chatacterToUseOn)
     {
+        PlayerStats selectCaracter = GameManager.instance.GetPlayerStats()[chatacterToUseOn];
         if(itemType == ItemType.Item)
         {
             if(affectType == AffectType.HP)
             {
-                PlayerStats.instance.AddHp(amoutOfAffect);
+                selectCaracter.AddHp(amoutOfAffect);
             }
             else if(affectType == AffectType.Mana)
             {
-                PlayerStats.instance.AddMana(amoutOfAffect);
+                selectCaracter.AddMana(amoutOfAffect);
             }
         }
     }

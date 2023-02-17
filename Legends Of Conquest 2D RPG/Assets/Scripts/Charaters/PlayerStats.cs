@@ -28,6 +28,8 @@ public class PlayerStats : MonoBehaviour
     public int defence;
 
     public int[] xpForEachLevel;
+
+
     void Start()
     {
         instance = this;
