@@ -28,6 +28,9 @@ public class MenuManager : MonoBehaviour
 
     public ItemsManager activeItem;
 
+    [SerializeField] GameObject characterChoicePanel;
+    [SerializeField] TextMeshProUGUI[] itemsCharacterChoiceName;
+
     private void Start()
     {
         instance = this;
@@ -134,6 +137,8 @@ public class MenuManager : MonoBehaviour
     public void UseItem()
     {
         activeItem.UseItem();
+        OpenCharacterChoicePanel();
+        //DiscartItem();
     }
 
     public void QuitGame()
@@ -148,6 +153,22 @@ public class MenuManager : MonoBehaviour
     }
 
     
+    public void OpenCharacterChoicePanel()
+    {
+        characterChoicePanel.SetActive(true);
+        for(int i = 0; i < playerStats.Length; i++)
+        {
+            PlayerStats activePlayer = GameManager.instance.GetPlayerStats()[i];
+            itemsCharacterChoiceName[i].text = activePlayer.playerName;
 
+            bool activePlayerAvaiable = activePlayer.gameObject.activeInHierarchy;
+            itemsCharacterChoiceName[i].transform.parent.gameObject.SetActive(activePlayerAvaiable);
+        }
+    }
+
+    public void CloseChatacterChoicePanel()
+    {
+        characterChoicePanel.SetActive(false);
+    }
 
 }
