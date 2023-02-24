@@ -8,6 +8,7 @@ public class ShopManager : MonoBehaviour
     public static ShopManager instance;
 
     public GameObject shopMenu, buyPanel, sellPanel;
+    public List<ItemsManager> itemsForSale;
 
     [SerializeField] Text currentCoin;
     void Start()
