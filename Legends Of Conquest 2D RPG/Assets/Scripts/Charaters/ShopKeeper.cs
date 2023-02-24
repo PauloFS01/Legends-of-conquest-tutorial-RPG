@@ -25,9 +25,10 @@ public class ShopKeeper : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        
         if(collision.tag == "Player")
         {
-            canOpenShop = true;
+            canOpenShop = false;
         }
     }
 
@@ -35,7 +36,7 @@ public class ShopKeeper : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            canOpenShop = false;
+            canOpenShop = true;
         }
     }
 }

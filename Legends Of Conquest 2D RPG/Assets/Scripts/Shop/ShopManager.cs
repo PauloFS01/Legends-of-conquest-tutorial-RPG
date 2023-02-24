@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +12,14 @@ public class ShopManager : MonoBehaviour
     public List<ItemsManager> itemsForSale;
 
     [SerializeField] Text currentCoin;
+    [SerializeField] GameObject itemSlotContainer;
+    [SerializeField] Transform itemSlotBuyContainerParent;
+    [SerializeField] Transform itemSlotSellContainerParent;
+
+    [SerializeField] ItemsManager selectedItem;
+    [SerializeField] Text buyItemName, buyItemDescription, buyItemValue;
+    [SerializeField] Text sellItemName, sellItemDescription, sellItemValue;
+
     void Start()
     {
         instance = this;
@@ -42,11 +51,60 @@ public class ShopManager : MonoBehaviour
         buyPanel.SetActive(true);
         sellPanel.SetActive(false);
 
+        UpdateIemsShop(itemSlotBuyContainerParent, itemsForSale);
+
     }
 
     public void OpenSellPanel()
     {
         buyPanel.SetActive(false);
         sellPanel.SetActive(true);
+
+        UpdateIemsShop(itemSlotSellContainerParent, Inventory.instance.GetItemsList());
+    }
+
+    private void UpdateIemsShop(Transform itemSlotContainerParent, List<ItemsManager> itemsToLookThrough)
+    {
+        foreach (Transform itemSlot in itemSlotContainerParent)
+        {
+            Destroy(itemSlot.gameObject);
+        };
+        foreach (ItemsManager item in itemsToLookThrough)
+        {
+            RectTransform itemSlot = Instantiate(itemSlotContainer, itemSlotContainerParent).GetComponent<RectTransform>();
+
+            Image itemImage = itemSlot.Find("Items Image").GetComponent<Image>();
+            itemImage.sprite = item.itemsImage;
+
+            //Text itemsAmoutText = itemSlot.Find("Amount Text").GetComponent<Text>();
+
+            /*        if(item.amount > 1)
+                    {
+                        itemsAmoutText.text = "";
+                    }else
+                    {
+                        itemsAmoutText.text = "";
+                    }*/
+
+            itemSlot.GetComponent<ItemButton>().itemOnButton = item;
+
+        }
+    }
+
+    public void SelectedBuyItem(ItemsManager itemsToBuy)
+    {
+        selectedItem = itemsToBuy;
+        buyItemName.text = selectedItem.itemName;
+        buyItemDescription.text = selectedItem.itemDescription;
+        buyItemValue.text = "Value: " + selectedItem.valueIncoins;
+
+    }
+
+    public void SelectedSellItem(ItemsManager itemsToSell)
+    {
+        selectedItem = itemsToSell;
+        sellItemName.text = selectedItem.itemName;
+        sellItemDescription.text = selectedItem.itemDescription;
+        sellItemValue.text = "Value: " + (int)selectedItem.valueIncoins * 0.75f;
     }
 }

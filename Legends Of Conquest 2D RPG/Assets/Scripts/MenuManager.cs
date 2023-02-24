@@ -7,7 +7,7 @@ using TMPro;
 public class MenuManager : MonoBehaviour
 {
     [SerializeField] Image imageToFade;
-    [SerializeField] GameObject menu;
+    public GameObject menu;
     [SerializeField] GameObject[] statsButtons;
 
     public static MenuManager instance;

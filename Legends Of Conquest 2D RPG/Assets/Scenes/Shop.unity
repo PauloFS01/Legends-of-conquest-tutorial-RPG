@@ -274,7 +274,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c223d1eaa17f2e34cb4aef2b1d51fa48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShopKeepersItemsForSale: []
+  ShopKeepersItemsForSale:
+  - {fileID: 6970958483405119616, guid: dcb0c7de8b7bba2468f2288f65b298ba, type: 3}
+  - {fileID: 1849016257976235174, guid: 02de77b7bbfb37747ad452b319a843d3, type: 3}
+  - {fileID: 1949127946592300053, guid: 979af2155a4beeb438f91f58875add17, type: 3}
+  - {fileID: 2567952830479554333, guid: 733e63a8d896dc240b2ff092bd924d26, type: 3}
 --- !u!1001 &112187339
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -379,6 +383,11 @@ PrefabInstance:
 --- !u!224 &112187340 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1559972152811685290, guid: 82300f8935b864a43b183878cd3838e9, type: 3}
+  m_PrefabInstance: {fileID: 112187339}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &112187341 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1559972152811685289, guid: 82300f8935b864a43b183878cd3838e9, type: 3}
   m_PrefabInstance: {fileID: 112187339}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &211513685
@@ -2898,6 +2907,9 @@ MonoBehaviour:
   sellPanel: {fileID: 1830074007}
   itemsForSale: []
   currentCoin: {fileID: 211513687}
+  itemSlotContainer: {fileID: 112187341}
+  itemSlotBuyContainerParent: {fileID: 833775767}
+  itemSlotSellContainerParent: {fileID: 506567606}
 --- !u!1001 &1348743608
 PrefabInstance:
   m_ObjectHideFlags: 0
