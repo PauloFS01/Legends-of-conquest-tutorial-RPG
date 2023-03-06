@@ -107,4 +107,15 @@ public class ShopManager : MonoBehaviour
         sellItemDescription.text = selectedItem.itemDescription;
         sellItemValue.text = "Value: " + (int)selectedItem.valueIncoins * 0.75f;
     }
+
+    public void BuyItem()
+    {
+        if(GameManager.instance.currentCoin >= selectedItem.valueIncoins)
+        {
+            GameManager.instance.currentCoin -= selectedItem.valueIncoins;
+            Inventory.instance.AddItems(selectedItem);
+
+            currentCoin.text = "R$: " + GameManager.instance.currentCoin;
+        }
+    }
 }

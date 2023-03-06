@@ -2910,6 +2910,13 @@ MonoBehaviour:
   itemSlotContainer: {fileID: 112187341}
   itemSlotBuyContainerParent: {fileID: 833775767}
   itemSlotSellContainerParent: {fileID: 506567606}
+  selectedItem: {fileID: 0}
+  buyItemName: {fileID: 1211462916}
+  buyItemDescription: {fileID: 1893133007}
+  buyItemValue: {fileID: 1264012691}
+  sellItemName: {fileID: 404530956}
+  sellItemDescription: {fileID: 730803608}
+  sellItemValue: {fileID: 1615280542}
 --- !u!1001 &1348743608
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3477,9 +3484,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1270361091}
-        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: OpenCharacterChoicePanel
+      - m_Target: {fileID: 1270361094}
+        m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
+        m_MethodName: BuyItem
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
