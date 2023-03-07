@@ -118,4 +118,18 @@ public class ShopManager : MonoBehaviour
             currentCoin.text = "R$: " + GameManager.instance.currentCoin;
         }
     }
+
+    public void SellItem()
+    {
+        if (selectedItem)
+        {
+            GameManager.instance.currentCoin += (int)(selectedItem.valueIncoins * 0.75f);
+            Inventory.instance.RemoveItem(selectedItem);
+
+            currentCoin.text = "R$: " + GameManager.instance.currentCoin;
+            selectedItem = null;
+
+            OpenSellPanel();
+        }
+    }
 }
