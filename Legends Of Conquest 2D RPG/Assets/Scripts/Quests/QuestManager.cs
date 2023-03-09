@@ -6,8 +6,11 @@ public class QuestManager : MonoBehaviour
 {
     [SerializeField] string[] questNames;
     [SerializeField] bool[] questMakersCompleted;
+
+    public static QuestManager instance;
     void Start()
     {
+        instance = this;
         questMakersCompleted = new bool[questNames.Length];
     }
 
@@ -46,15 +49,32 @@ public class QuestManager : MonoBehaviour
         return false;
     }
 
+    public void UpdeteQuestObjects()
+    {
+        QuestObjects[] questObjects = FindObjectsOfType<QuestObjects>();
+
+        if(questObjects.Length > 0)
+        {
+            foreach(QuestObjects questObject in questObjects)
+            {
+                questObject.CheckForCompletion();
+            }
+        }
+    }
+
     public void MarkQuestComplete(string questToMark)
     {
         int questNumberToCheck = GetQuestNumber(questToMark);
         questMakersCompleted[questNumberToCheck] = true;
+
+        UpdeteQuestObjects();
     }
 
     public void MarkQuestIncomplete(string questToMark)
     {
         int questNumberToCheck = GetQuestNumber(questToMark);
         questMakersCompleted[questNumberToCheck] = false;
+
+        UpdeteQuestObjects();
     }
 }

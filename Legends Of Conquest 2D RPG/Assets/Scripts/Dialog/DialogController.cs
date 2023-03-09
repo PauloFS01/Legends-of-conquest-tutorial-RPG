@@ -15,6 +15,10 @@ public class DialogController : MonoBehaviour
     private bool justStartedTotalk;
 
     public static DialogController instance;
+
+    private string questToMark;
+    private bool markTheQuestComplete;
+    private bool shouldMarkQuest;
     void Start()
     {
         instance = this;
@@ -37,6 +41,19 @@ public class DialogController : MonoBehaviour
                     {
                         dialogBox.SetActive(false);
                         GameManager.instance.gameMenuOpened = false;
+
+                        if(shouldMarkQuest)
+                        {
+                            shouldMarkQuest = false;
+                            if(markTheQuestComplete)
+                            {
+                                QuestManager.instance.MarkQuestComplete(questToMark);
+                            }
+                            else
+                            {
+                                QuestManager.instance.MarkQuestIncomplete(questToMark);
+                            }
+                        }
                     }
                     else
                     {
@@ -50,6 +67,13 @@ public class DialogController : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void ActivateQuestAtEnd(string questName, bool markComplete)
+    {
+        questToMark = questName;
+        markTheQuestComplete = markComplete;
+        shouldMarkQuest = true;
     }
 
     public void ActivateDialog(string[] newSentecesToUse)

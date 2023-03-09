@@ -6,6 +6,10 @@ public class DiologeHandler : MonoBehaviour
 {
     public string[] sentences;
     private bool canActivateBox;
+
+    [SerializeField] bool shouldActivateQuest;
+    [SerializeField] string questToMark;
+    [SerializeField] bool markAsComplete;
     void Start()
     {
         
@@ -17,6 +21,11 @@ public class DiologeHandler : MonoBehaviour
         if(canActivateBox && Input.GetButtonDown("Fire1") && !DialogController.instance.IsDialogBoxActive())
         {
             DialogController.instance.ActivateDialog(sentences);
+
+            if(shouldActivateQuest)
+            {
+                DialogController.instance.ActivateQuestAtEnd(questToMark, markAsComplete);
+            }
         }
     }
 
