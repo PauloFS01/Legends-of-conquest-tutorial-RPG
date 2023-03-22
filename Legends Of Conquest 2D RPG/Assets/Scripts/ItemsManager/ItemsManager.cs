@@ -58,6 +58,7 @@ public class ItemsManager : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             // print("This is: " + itemName);
+            AudioManager.instance.PlaySFX(5);
             Inventory.instance.AddItems(this);
             SelfDestroy();
         }
