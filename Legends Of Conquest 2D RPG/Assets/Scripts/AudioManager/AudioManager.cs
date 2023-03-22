@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    [SerializeField] AudioSource[] SFX, backGround;
+    [SerializeField] AudioSource[] SFX, backGroundMusic;
 
     public static AudioManager instance;
 
     void Start()
     {
-        instance = this;
+        if (instance != null && instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            instance = this;
+        }
         DontDestroyOnLoad(gameObject);
     }
 
@@ -19,7 +26,7 @@ public class AudioManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-            PlaySFX(3);
+            PlayBackgroundMusic(4);
         }
         
     }
@@ -29,6 +36,23 @@ public class AudioManager : MonoBehaviour
         if(soundToPLay < SFX.Length)
         {
             SFX[soundToPLay].Play();
+        }
+    }
+
+    public void PlayBackgroundMusic(int musicToPlay)
+    {
+        StopMusic();
+        if (musicToPlay < backGroundMusic.Length)
+        {
+            backGroundMusic[musicToPlay].Play();
+        }
+    }
+
+    public void StopMusic()
+    {
+        foreach(AudioSource music in backGroundMusic)
+        {
+            music.Stop();
         }
     }
 }
