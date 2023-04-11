@@ -486,7 +486,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3752232238172628723, guid: da3c5c14f0eee75499be271aacc7967c, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3752232238172628723, guid: da3c5c14f0eee75499be271aacc7967c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -960,6 +960,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   battleScene: {fileID: 1709742037}
+  activeCharacters: []
   playerPositions:
   - {fileID: 1824106456}
   - {fileID: 753171048}
@@ -976,6 +977,9 @@ MonoBehaviour:
   - {fileID: 381503017733092275, guid: db4c9b9c6214c94408168b9f3791a817, type: 3}
   - {fileID: 1808445132031321547, guid: d4569c9947408e941bc3bfa8d51c7f55, type: 3}
   - {fileID: 290491418831981257, guid: bce69d02300d4fd489b30cb38442f080, type: 3}
+  currentTurn: 0
+  waitingForTurn: 0
+  UIButtonHolder: {fileID: 1420798247}
 --- !u!4 &159280345
 Transform:
   m_ObjectHideFlags: 0
@@ -1944,7 +1948,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1592669860327421754, guid: a5f24a821e647b24193b9a7d7d97fc44, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1592669860327421754, guid: a5f24a821e647b24193b9a7d7d97fc44, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2957,7 +2961,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7181401371860188207, guid: d3e73c181eeb289438e1f88f87e3fbd5, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7181401371860188207, guid: d3e73c181eeb289438e1f88f87e3fbd5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -56608,6 +56612,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 905369272, guid: 4e4a3f6b3ad926c4089234dc70979fab, type: 3}
+      propertyPath: playerName
+      value: Draco
+      objectReference: {fileID: 0}
     - target: {fileID: 136642841079222242, guid: 4e4a3f6b3ad926c4089234dc70979fab, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -57879,7 +57887,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6990028392182150020, guid: ad1a815c13e22dc4bbc50b20af74126c, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6990028392182150020, guid: ad1a815c13e22dc4bbc50b20af74126c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -58154,9 +58162,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 905369272, guid: 5f573354eb6e7b844bac5da521ca24c7, type: 3}
+      propertyPath: playerName
+      value: Grim
+      objectReference: {fileID: 0}
     - target: {fileID: 136642841079222242, guid: 5f573354eb6e7b844bac5da521ca24c7, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 136642841079222242, guid: 5f573354eb6e7b844bac5da521ca24c7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -58217,7 +58229,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8758644221838257578, guid: c69d82b4ff12bcf49b627c52c2a64a90, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8758644221838257578, guid: c69d82b4ff12bcf49b627c52c2a64a90, type: 3}
       propertyPath: m_LocalPosition.x

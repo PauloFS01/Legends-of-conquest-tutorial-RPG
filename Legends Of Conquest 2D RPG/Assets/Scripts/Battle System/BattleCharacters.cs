@@ -9,14 +9,9 @@ public class BattleCharacters : MonoBehaviour
 
     public string characterName;
     public int currentHP, maxHP, currentMana, dexterity, defence, wpnPower, armorDefence;
-    void Start()
+
+    public bool IsPlayer()
     {
-
-    }
-
-
-    void Update()
-    {
-
+        return isPlayer;
     }
 }
