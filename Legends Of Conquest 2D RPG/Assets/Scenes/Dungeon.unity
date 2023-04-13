@@ -980,6 +980,20 @@ MonoBehaviour:
   currentTurn: 0
   waitingForTurn: 0
   UIButtonHolder: {fileID: 1420798247}
+  battleMovesList:
+  - moveAttack: Fire Attack
+    movePower: 30
+    manaCost: 300
+    theEffectToUse: {fileID: 9162345226774091972, guid: c20453a14983b5e4b9a052ee56ff3f78, type: 3}
+  - moveAttack: Pison Attack
+    movePower: 25
+    manaCost: 200
+    theEffectToUse: {fileID: 1702566897354673888, guid: c83ca19fdfca5f343a0e8a26edb4ebb5, type: 3}
+  - moveAttack: Sparkle Attack
+    movePower: 40
+    manaCost: 350
+    theEffectToUse: {fileID: 5084063516340719831, guid: 8b01210142168104cb01be4fabfd5877, type: 3}
+  characterAttackEffect: {fileID: 204217947259336048, guid: 3cfdcbd4b3a5e74478297528900dd4ea, type: 3}
 --- !u!4 &159280345
 Transform:
   m_ObjectHideFlags: 0

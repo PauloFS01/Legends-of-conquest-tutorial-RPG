@@ -18,6 +18,10 @@ public class BattleManager : MonoBehaviour
     [SerializeField] bool waitingForTurn;
     [SerializeField] GameObject UIButtonHolder;
 
+    [SerializeField] BattleMoves[] battleMovesList;
+
+    [SerializeField] ParticleSystem characterAttackEffect;
+
     void Start()
     {
         instance = this;
@@ -232,5 +236,51 @@ public class BattleManager : MonoBehaviour
         }
 
         int selectPlayerToAttack = players[Random.Range(0, players.Count)];
+        int seleceAttack = Random.Range(0, activeCharacters[currentTurn].AttackMovesAvaiable().Length);
+        int movePower = 0;
+
+        for (int i =0; i < battleMovesList.Length; i++)
+        {
+            if (battleMovesList[i].moveAttack == activeCharacters[currentTurn].AttackMovesAvaiable()[seleceAttack])
+            {
+                Instantiate(
+                    battleMovesList[i].theEffectToUse,
+                    activeCharacters[selectPlayerToAttack].transform.position,
+                    activeCharacters[selectPlayerToAttack].transform.rotation
+                    );
+                movePower = battleMovesList[i].movePower;
+            }
+        }
+        Instantiate(
+            characterAttackEffect,
+            activeCharacters[currentTurn].transform.position,
+            activeCharacters[currentTurn].transform.rotation
+            );
+        DealDamageToCharacters(selectPlayerToAttack, movePower);
+    }
+
+    private void DealDamageToCharacters(int selectedCharacterToAttack, int movePower)
+    {
+        float attackPower = activeCharacters[currentTurn].dexterity + activeCharacters[currentTurn].wpnPower;
+        float defenceAmount = activeCharacters[selectedCharacterToAttack].defence + activeCharacters[selectedCharacterToAttack].armorDefence;
+
+        float damageAmount = (attackPower / defenceAmount) * movePower * Random.Range(0.9f, 1.1f);
+        int damageToGive = (int)damageAmount;
+
+        damageToGive = CalculatingCritical(damageToGive);
+
+        Debug.Log(activeCharacters[currentTurn].characterName + " Just deal " + damageAmount + "(" + damageToGive + ") to " + activeCharacters[selectedCharacterToAttack]);
+    }
+
+    private int CalculatingCritical(int damageToGive)
+    {
+        if(Random.value <= 0.1f)
+        {
+            Debug.Log("Critical Hit insted of " + damageToGive + " Points. " + (damageToGive * 2) + " was deal.");
+
+            return (damageToGive * 2);
+        }
+
+        return damageToGive;
     }
 }
