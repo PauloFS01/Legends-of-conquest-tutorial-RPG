@@ -994,6 +994,7 @@ MonoBehaviour:
     manaCost: 350
     theEffectToUse: {fileID: 5084063516340719831, guid: 8b01210142168104cb01be4fabfd5877, type: 3}
   characterAttackEffect: {fileID: 204217947259336048, guid: 3cfdcbd4b3a5e74478297528900dd4ea, type: 3}
+  damageText: {fileID: 4932924204347030855, guid: d572974a7a4f4504e9c8a1ca890d60f4, type: 3}
 --- !u!4 &159280345
 Transform:
   m_ObjectHideFlags: 0

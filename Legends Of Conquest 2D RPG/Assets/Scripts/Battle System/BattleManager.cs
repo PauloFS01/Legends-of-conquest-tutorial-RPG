@@ -22,6 +22,7 @@ public class BattleManager : MonoBehaviour
 
     [SerializeField] ParticleSystem characterAttackEffect;
 
+    [SerializeField] CharacterDamageGUI damageText;
     void Start()
     {
         instance = this;
@@ -257,6 +258,7 @@ public class BattleManager : MonoBehaviour
             activeCharacters[currentTurn].transform.rotation
             );
         DealDamageToCharacters(selectPlayerToAttack, movePower);
+
     }
 
     private void DealDamageToCharacters(int selectedCharacterToAttack, int movePower)
@@ -270,6 +272,16 @@ public class BattleManager : MonoBehaviour
         damageToGive = CalculatingCritical(damageToGive);
 
         Debug.Log(activeCharacters[currentTurn].characterName + " Just deal " + damageAmount + "(" + damageToGive + ") to " + activeCharacters[selectedCharacterToAttack]);
+
+        activeCharacters[selectedCharacterToAttack].TakeHPDamage(damageToGive);
+
+        CharacterDamageGUI characterDamageText = Instantiate(
+            damageText,
+            activeCharacters[selectedCharacterToAttack].transform.position,
+            activeCharacters[selectedCharacterToAttack].transform.rotation
+            );
+
+        characterDamageText.SetDamage(damageToGive);
     }
 
     private int CalculatingCritical(int damageToGive)
