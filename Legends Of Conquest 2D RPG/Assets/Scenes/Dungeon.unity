@@ -995,6 +995,18 @@ MonoBehaviour:
     theEffectToUse: {fileID: 5084063516340719831, guid: 8b01210142168104cb01be4fabfd5877, type: 3}
   characterAttackEffect: {fileID: 204217947259336048, guid: 3cfdcbd4b3a5e74478297528900dd4ea, type: 3}
   damageText: {fileID: 4932924204347030855, guid: d572974a7a4f4504e9c8a1ca890d60f4, type: 3}
+  playersNameText:
+  - {fileID: 129211912}
+  - {fileID: 212616705}
+  - {fileID: 1586379155}
+  playerHealthSlider:
+  - {fileID: 704228538}
+  - {fileID: 356445948}
+  - {fileID: 1933225429}
+  playerManaSlider:
+  - {fileID: 582046934}
+  - {fileID: 1058396055}
+  - {fileID: 33730193}
 --- !u!4 &159280345
 Transform:
   m_ObjectHideFlags: 0
@@ -1621,7 +1633,7 @@ GameObject:
   - component: {fileID: 356445947}
   - component: {fileID: 356445948}
   m_Layer: 0
-  m_Name: Healf Slider
+  m_Name: Health Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2181,7 +2193,7 @@ GameObject:
   - component: {fileID: 704228537}
   - component: {fileID: 704228538}
   m_Layer: 0
-  m_Name: Healf Slider
+  m_Name: Health Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -57814,7 +57826,7 @@ GameObject:
   - component: {fileID: 1933225428}
   - component: {fileID: 1933225429}
   m_Layer: 0
-  m_Name: Healf Slider
+  m_Name: Health Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
