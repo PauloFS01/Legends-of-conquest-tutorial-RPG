@@ -31,6 +31,10 @@ public class BattleManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI[] playersNameText;
     [SerializeField] Slider[] playerHealthSlider, playerManaSlider;
 
+    [SerializeField] GameObject enemyTargetPanel;
+
+    [SerializeField] BattleTargerButtons[] targetButtons;
+
     void Start()
     {
         instance = this;
@@ -354,9 +358,9 @@ public class BattleManager : MonoBehaviour
         }
     }
 
-    public void PlayerAttack(string moveNome)
+    public void PlayerAttack(string moveNome, int selectEnemyTarget)
     {
-        int selectEnemyTarget = 3;
+        //int selectEnemyTarget = 3;
         int movePower = 0;
         for(int i =0; i < battleMovesList.Length; i++)
         {
@@ -369,6 +373,35 @@ public class BattleManager : MonoBehaviour
         DealDamageToCharacters(selectEnemyTarget, movePower);
 
         NextTurn();
+
+        enemyTargetPanel.SetActive(false);
+    }
+
+    public void OpenTargetMenu(string moveName)
+    {
+        enemyTargetPanel.SetActive(true);
+
+        List<int> Enemies = new List<int>();
+        for(int i =0; i < activeCharacters.Count; i++)
+        {
+            if (!activeCharacters[i].IsPlayer())
+            {
+                Enemies.Add(i);
+            }
+        }
+        //Debug.Log(Enemies.Count);
+
+        for(int i = 0; i < targetButtons.Length; i++)
+        {
+            if(Enemies.Count > i)
+            {
+                targetButtons[i].gameObject.SetActive(true);
+                targetButtons[i].moveName = moveName;
+                targetButtons[i].activeBattleTarget = Enemies[i];
+                targetButtons[i].targetName.text = activeCharacters[Enemies[i]].characterName;
+
+            }
+        }
     }
 
     private int GettingMovePowerAndEffectInstatiation(int characterTarget, int i)
