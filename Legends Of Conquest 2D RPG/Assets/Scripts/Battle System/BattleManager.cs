@@ -249,7 +249,7 @@ public class BattleManager : MonoBehaviour
     private void EnemyAttack()
     {
         List<int> players = new List<int>();
-        
+
 
         for (int i = 0; i < activeCharacters.Count; i++)
         {
@@ -263,28 +263,28 @@ public class BattleManager : MonoBehaviour
         int seleceAttack = Random.Range(0, activeCharacters[currentTurn].AttackMovesAvaiable().Length);
         int movePower = 0;
 
-        for (int i =0; i < battleMovesList.Length; i++)
+        for (int i = 0; i < battleMovesList.Length; i++)
         {
             if (battleMovesList[i].moveAttack == activeCharacters[currentTurn].AttackMovesAvaiable()[seleceAttack])
             {
-                Instantiate(
-                    battleMovesList[i].theEffectToUse,
-                    activeCharacters[selectPlayerToAttack].transform.position,
-                    activeCharacters[selectPlayerToAttack].transform.rotation
-                    );
-                movePower = battleMovesList[i].movePower;
+                movePower = GettingMovePowerAndEffectInstatiation(seleceAttack, i);
             }
         }
-        Instantiate(
-            characterAttackEffect,
-            activeCharacters[currentTurn].transform.position,
-            activeCharacters[currentTurn].transform.rotation
-            );
+        InstatiateEffectOnAttackCharacter();
 
         DealDamageToCharacters(selectPlayerToAttack, movePower);
 
         UpdatePlayerStats();
 
+    }
+
+    private void InstatiateEffectOnAttackCharacter()
+    {
+        Instantiate(
+            characterAttackEffect,
+            activeCharacters[currentTurn].transform.position,
+            activeCharacters[currentTurn].transform.rotation
+            );
     }
 
     private void DealDamageToCharacters(int selectedCharacterToAttack, int movePower)
@@ -352,5 +352,35 @@ public class BattleManager : MonoBehaviour
 
             }
         }
+    }
+
+    public void PlayerAttack(string moveNome)
+    {
+        int selectEnemyTarget = 3;
+        int movePower = 0;
+        for(int i =0; i < battleMovesList.Length; i++)
+        {
+            if (battleMovesList[i].moveAttack == moveNome)
+            {
+                movePower = GettingMovePowerAndEffectInstatiation(selectEnemyTarget, i);
+            }
+        }
+        InstatiateEffectOnAttackCharacter();
+        DealDamageToCharacters(selectEnemyTarget, movePower);
+
+        NextTurn();
+    }
+
+    private int GettingMovePowerAndEffectInstatiation(int characterTarget, int i)
+    {
+        int movePower;
+        Instantiate(
+            battleMovesList[i].theEffectToUse,
+            activeCharacters[characterTarget].transform.position,
+            activeCharacters[characterTarget].transform.rotation
+        );
+
+        movePower = battleMovesList[i].movePower;
+        return movePower;
     }
 }
