@@ -35,6 +35,8 @@ public class BattleManager : MonoBehaviour
 
     [SerializeField] BattleTargerButtons[] targetButtons;
 
+    public GameObject magicChoicePannel;
+
     void Start()
     {
         instance = this;
@@ -415,5 +417,15 @@ public class BattleManager : MonoBehaviour
 
         movePower = battleMovesList[i].movePower;
         return movePower;
+    }
+
+    public void OpenMagicPanel()
+    {
+        magicChoicePannel.SetActive(true);
+    }
+
+    public BattleCharacters GetCurrentActiveCaaracter()
+    {
+        return activeCharacters[currentTurn];
     }
 }
