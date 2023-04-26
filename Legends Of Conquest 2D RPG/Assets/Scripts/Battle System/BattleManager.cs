@@ -38,6 +38,10 @@ public class BattleManager : MonoBehaviour
     public GameObject magicChoicePannel;
     [SerializeField] BattleMagicButtons[] magicButtons;
 
+    public BattleNotifications battleNotice;
+
+    [SerializeField] float chanceToRunWay = 0.5f;
+
     void Start()
     {
         instance = this;
@@ -450,5 +454,20 @@ public class BattleManager : MonoBehaviour
     public BattleCharacters GetCurrentActiveCaaracter()
     {
         return activeCharacters[currentTurn];
+    }
+
+    public void RunAway()
+    {
+        if(Random.value > chanceToRunWay)
+        {
+            isBattleActive = true;
+            battleScene.SetActive(false);
+        }
+        else
+        {
+            NextTurn();
+            battleNotice.SetText("No scape!");
+            battleNotice.Activate();
+        }
     }
 }
