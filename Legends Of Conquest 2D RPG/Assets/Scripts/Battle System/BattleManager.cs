@@ -36,6 +36,7 @@ public class BattleManager : MonoBehaviour
     [SerializeField] BattleTargerButtons[] targetButtons;
 
     public GameObject magicChoicePannel;
+    [SerializeField] BattleMagicButtons[] magicButtons;
 
     void Start()
     {
@@ -422,6 +423,28 @@ public class BattleManager : MonoBehaviour
     public void OpenMagicPanel()
     {
         magicChoicePannel.SetActive(true);
+        for(int i = 0;i < magicButtons.Length; i++)
+        {
+            if (activeCharacters[currentTurn].AttackMovesAvaiable().Length > 1)
+            {
+                magicButtons[i].gameObject.SetActive(true);
+                magicButtons[i].spellName = GetCurrentActiveCaaracter().AttackMovesAvaiable()[i];
+                magicButtons[i].spellNameText.text = magicButtons[i].spellName;
+
+                for(int j=0; j < battleMovesList.Length; j++)
+                {
+                    if (battleMovesList[j].moveAttack == magicButtons[i].spellName)
+                    {
+                        magicButtons[i].spellCost = battleMovesList[j].manaCost;
+                        magicButtons[i].spellCostText.text = magicButtons[i].spellCost.ToString();
+                    }
+                }
+            }
+            else
+            {
+                magicButtons[i].gameObject.SetActive(false);
+            }
+        }
     }
 
     public BattleCharacters GetCurrentActiveCaaracter()
