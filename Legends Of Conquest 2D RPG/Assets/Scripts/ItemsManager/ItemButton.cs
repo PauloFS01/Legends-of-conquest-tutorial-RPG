@@ -27,6 +27,9 @@ public class ItemButton : MonoBehaviour
                 ShopManager.instance.SelectedSellItem(itemOnButton);
             }
         }
-
+        if (BattleManager.instance.itemsToUseMenu.activeInHierarchy)
+        {
+            BattleManager.instance.SelectedItemToUse(itemOnButton);
+        }
     }
 }

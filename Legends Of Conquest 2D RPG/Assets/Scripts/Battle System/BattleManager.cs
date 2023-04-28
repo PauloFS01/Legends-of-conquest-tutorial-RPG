@@ -42,6 +42,15 @@ public class BattleManager : MonoBehaviour
 
     [SerializeField] float chanceToRunWay = 0.5f;
 
+    public GameObject itemsToUseMenu;
+    [SerializeField] ItemsManager selectedItem;
+    [SerializeField] GameObject itemSlotContainer;
+    [SerializeField] Transform itemSlotContainerParent;
+    [SerializeField] Text itemName, itemDescription;
+
+    [SerializeField] GameObject characterChoicePanel;
+    [SerializeField] TextMeshProUGUI[] playerNames;
+
     void Start()
     {
         instance = this;
@@ -469,5 +478,84 @@ public class BattleManager : MonoBehaviour
             battleNotice.SetText("No scape!");
             battleNotice.Activate();
         }
+    }
+
+    public void UpdateItemsInventory()
+    {
+        itemsToUseMenu.SetActive(true);
+
+        foreach (Transform itemSlot in itemSlotContainerParent)
+        {
+            Destroy(itemSlot.gameObject);
+        };
+        foreach (ItemsManager item in Inventory.instance.GetItemsList())
+        {
+            RectTransform itemSlot = Instantiate(itemSlotContainer, itemSlotContainerParent).GetComponent<RectTransform>();
+
+            Image itemImage = itemSlot.Find("Items Image").GetComponent<Image>();
+            itemImage.sprite = item.itemsImage;
+
+            //Text itemsAmoutText = itemSlot.Find("Amount Text").GetComponent<Text>();
+
+            /*        if(item.amount > 1)
+                    {
+                        itemsAmoutText.text = item.amount.ToString();
+                    }else
+                    {
+                        itemsAmoutText.text = "";
+                    }*/
+
+            itemSlot.GetComponent<ItemButton>().itemOnButton = item;
+
+        }
+    }
+
+    public void SelectedItemToUse(ItemsManager itemToUse)
+    {
+        selectedItem = itemToUse;
+        itemName.text = itemToUse.itemName;
+        itemDescription.text = itemToUse.itemDescription;
+    }
+
+    public void OpenCharacterMenu()
+
+
+    {
+        if (selectedItem)
+        {
+            characterChoicePanel.SetActive(true);
+            for(int i =0; i < activeCharacters.Count; i++)
+            {
+                if (activeCharacters[i].IsPlayer())
+                {
+                    PlayerStats activePlayer = GameManager.instance.GetPlayerStats()[i];
+
+                    playerNames[i].text = activePlayer.playerName;
+
+                    bool activePlayerInHierarchy = activePlayer.gameObject.activeInHierarchy;
+                    playerNames[i].transform.parent.gameObject.SetActive(activePlayerInHierarchy);
+                }
+            }
+        }
+        else
+        {
+            print("no item selected");
+        }
+    }
+
+    public void UseItemButton(int selectedPlayer)
+    {
+        activeCharacters[selectedPlayer].UseItemInTheBattle(selectedItem);
+        Inventory.instance.RemoveItem(selectedItem);
+
+        UpdatePlayerStats();
+        CloseCharacterChoice();
+        UpdateItemsInventory();
+    }
+
+    public void CloseCharacterChoice()
+    {
+        characterChoicePanel.SetActive(false);
+        itemsToUseMenu.SetActive(false);
     }
 }

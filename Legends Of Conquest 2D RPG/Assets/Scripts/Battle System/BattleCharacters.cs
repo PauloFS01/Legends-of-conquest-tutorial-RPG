@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -29,4 +30,28 @@ public class BattleCharacters : MonoBehaviour
             currentHP = 0;
         }
     }
+    public void UseItemInTheBattle(ItemsManager itemToUse)
+    {
+        if(itemToUse.itemType == ItemsManager.ItemType.Item)
+        {
+            if(itemToUse.affectType == ItemsManager.AffectType.HP)
+            {
+                AddHP(itemToUse.amoutOfAffect);
+            }
+            else if(itemToUse.affectType == ItemsManager.AffectType.Mana)
+            {
+                AddMana(itemToUse.amoutOfAffect);
+            }
+        }
+    }
+
+    private void AddHP(int amoutOfAffect)
+    {
+        currentHP += amoutOfAffect;
+    }
+    private void AddMana(int amoutOfAffect)
+    {
+        currentMana += amoutOfAffect;
+    }
+
 }
