@@ -211,7 +211,10 @@ public class BattleManager : MonoBehaviour
             }
             if (activeCharacters[i].currentHP == 0)
             {
-                // Todo kill characters
+                if (activeCharacters[i].IsPlayer() && !activeCharacters[i].isDead)
+                {
+                    activeCharacters[i].KillPlayer();
+                }
             }
             else
             {
