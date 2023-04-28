@@ -215,6 +215,10 @@ public class BattleManager : MonoBehaviour
                 {
                     activeCharacters[i].KillPlayer();
                 }
+                if (!activeCharacters[i].IsPlayer() && !activeCharacters[i].isDead)
+                {
+                    activeCharacters[i].KillEnemy();
+                }
             }
             else
             {
@@ -233,15 +237,15 @@ public class BattleManager : MonoBehaviour
         {
             if (allEnemiesAreDeath)
             {
-                print("You win");
+                StartCoroutine(EndBattleCoroutine());
             }
             else if (allPlayersAreDeath)
             {
                 print("You lost");
             }
-            battleScene.SetActive(false);
+            /*battleScene.SetActive(false);
             GameManager.instance.battleIsActive = false;
-            isBattleActive = false;
+            isBattleActive = false;*/
         }
         else
         {
@@ -412,13 +416,17 @@ public class BattleManager : MonoBehaviour
 
         for(int i = 0; i < targetButtons.Length; i++)
         {
-            if(Enemies.Count > i)
+            if(Enemies.Count > i && activeCharacters[Enemies[i]].currentHP > 0)
             {
                 targetButtons[i].gameObject.SetActive(true);
                 targetButtons[i].moveName = moveName;
                 targetButtons[i].activeBattleTarget = Enemies[i];
                 targetButtons[i].targetName.text = activeCharacters[Enemies[i]].characterName;
 
+            }
+            else
+            {
+                targetButtons[i].gameObject.SetActive(false);
             }
         }
     }
@@ -472,8 +480,8 @@ public class BattleManager : MonoBehaviour
     {
         if(Random.value > chanceToRunWay)
         {
-            isBattleActive = true;
-            battleScene.SetActive(false);
+
+            StartCoroutine(EndBattleCoroutine());
         }
         else
         {
@@ -560,5 +568,39 @@ public class BattleManager : MonoBehaviour
     {
         characterChoicePanel.SetActive(false);
         itemsToUseMenu.SetActive(false);
+    }
+
+    public IEnumerator EndBattleCoroutine()
+    {
+        isBattleActive = false;
+        UIButtonHolder.SetActive(false);
+        enemyTargetPanel.SetActive(false);
+        magicChoicePannel.SetActive(false);
+        battleNotice.SetText("We won!");
+        battleNotice.Activate();
+
+        yield return new WaitForSeconds(3f);
+
+        foreach(BattleCharacters playerInBattle in activeCharacters)
+        {
+            if (playerInBattle.IsPlayer())
+            {
+                foreach(PlayerStats playerWithStats in GameManager.instance.GetPlayerStats())
+                {
+                    if(playerInBattle.characterName == playerWithStats.playerName)
+                    {
+                        playerWithStats.currentHP = playerInBattle.currentHP;
+                        playerWithStats.currentMana = playerInBattle.currentMana;
+                    }
+                }
+            }
+            Destroy(playerInBattle);
+        }
+
+        battleScene.SetActive(false);
+        activeCharacters.Clear();
+
+        currentTurn = 0;
+        GameManager.instance.battleIsActive = false;
     }
 }
