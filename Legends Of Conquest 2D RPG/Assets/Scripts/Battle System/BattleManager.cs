@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class BattleManager : MonoBehaviour
 {
@@ -50,6 +51,8 @@ public class BattleManager : MonoBehaviour
 
     [SerializeField] GameObject characterChoicePanel;
     [SerializeField] TextMeshProUGUI[] playerNames;
+
+    [SerializeField] string gameoverScene;
 
     void Start()
     {
@@ -241,7 +244,7 @@ public class BattleManager : MonoBehaviour
             }
             else if (allPlayersAreDeath)
             {
-                print("You lost");
+                StartCoroutine(GameOverCouroutine());
             }
             /*battleScene.SetActive(false);
             GameManager.instance.battleIsActive = false;
@@ -602,5 +605,16 @@ public class BattleManager : MonoBehaviour
 
         currentTurn = 0;
         GameManager.instance.battleIsActive = false;
+    }
+
+    public IEnumerator GameOverCouroutine()
+    {
+        battleNotice.SetText("We won!");
+        battleNotice.Activate();
+
+        yield return new WaitForSeconds(3f);
+
+        isBattleActive = false;
+        SceneManager.LoadScene(gameoverScene);
     }
 }
