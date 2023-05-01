@@ -13,6 +13,7 @@ public class BattleInstatiator : MonoBehaviour
     private float battleCouter;
 
     [SerializeField] bool deactivateAterStarting;
+    [SerializeField] bool canRuAway;
 
     private void Start()
     {
@@ -48,7 +49,7 @@ public class BattleInstatiator : MonoBehaviour
 
         MenuManager.instance.EndFade();
 
-        BattleManager.instance.StartBattle(avaiableBattles[selectBattle].enemies);
+        BattleManager.instance.StartBattle(avaiableBattles[selectBattle].enemies,canRuAway);
 
         if (deactivateAterStarting)
             Destroy(gameObject);

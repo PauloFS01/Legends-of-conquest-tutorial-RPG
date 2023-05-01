@@ -58,6 +58,8 @@ public class BattleManager : MonoBehaviour
     public int XPRewardsAmount;
     public ItemsManager[] itemsReward;
 
+    private bool canRun;
+
     void Start()
     {
         instance = this;
@@ -68,7 +70,7 @@ public class BattleManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.B))
         {
-            StartBattle(new string[] { "Mage Master", "Warlok" });
+            StartBattle(new string[] { "Mage Master", "Warlok" },canRun);
         }
 
         if (Input.GetKeyDown(KeyCode.N))
@@ -98,17 +100,21 @@ public class BattleManager : MonoBehaviour
         }
     }
 
-    public void StartBattle(string[] enemiesToSpaw)
+    public void StartBattle(string[] enemiesToSpaw, bool canRuAway)
     {
-        SettingBatle();
-        AddingPlayers();
+        if (!isBattleActive)
+        {
+            canRun = canRuAway;
+            SettingBatle();
+            AddingPlayers();
 
-        AddingEnemies(enemiesToSpaw);
+            AddingEnemies(enemiesToSpaw);
 
-        UpdatePlayerStats();
+            UpdatePlayerStats();
 
-        waitingForTurn = true;
-        currentTurn = Random.Range(0, activeCharacters.Count);
+            waitingForTurn = true;
+            currentTurn = Random.Range(0, activeCharacters.Count);
+        }
     }
 
     private void AddingEnemies(string[] enemiesToSpaw)
@@ -485,16 +491,19 @@ public class BattleManager : MonoBehaviour
 
     public void RunAway()
     {
-        if(Random.value > chanceToRunWay)
+        if (canRun)
         {
-            runingAway = true;
-            StartCoroutine(EndBattleCoroutine());
-        }
-        else
-        {
-            NextTurn();
-            battleNotice.SetText("No scape!");
-            battleNotice.Activate();
+            if(Random.value > chanceToRunWay)
+            {
+                runingAway = true;
+                StartCoroutine(EndBattleCoroutine());
+            }
+            else
+            {
+                NextTurn();
+                battleNotice.SetText("No scape!");
+                battleNotice.Activate();
+            }
         }
     }
 
