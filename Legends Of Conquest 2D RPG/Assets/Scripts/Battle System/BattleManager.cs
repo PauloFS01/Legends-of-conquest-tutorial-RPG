@@ -54,6 +54,10 @@ public class BattleManager : MonoBehaviour
 
     [SerializeField] string gameoverScene;
 
+    private bool runingAway;
+    public int XPRewardsAmount;
+    public ItemsManager[] itemsReward;
+
     void Start()
     {
         instance = this;
@@ -483,7 +487,7 @@ public class BattleManager : MonoBehaviour
     {
         if(Random.value > chanceToRunWay)
         {
-
+            runingAway = true;
             StartCoroutine(EndBattleCoroutine());
         }
         else
@@ -579,8 +583,12 @@ public class BattleManager : MonoBehaviour
         UIButtonHolder.SetActive(false);
         enemyTargetPanel.SetActive(false);
         magicChoicePannel.SetActive(false);
-        battleNotice.SetText("We won!");
-        battleNotice.Activate();
+        if (!runingAway)
+        {
+            battleNotice.SetText("We won!");
+            battleNotice.Activate();
+        }
+
 
         yield return new WaitForSeconds(3f);
 
@@ -603,8 +611,17 @@ public class BattleManager : MonoBehaviour
         battleScene.SetActive(false);
         activeCharacters.Clear();
 
+        if (runingAway)
+        {
+            GameManager.instance.battleIsActive = false;
+            runingAway = false;
+        }
+        else
+        {
+            BattleRewardsHandler.instance.OpenRewardScreen(XPRewardsAmount, itemsReward);
+        }
+
         currentTurn = 0;
-        GameManager.instance.battleIsActive = false;
     }
 
     public IEnumerator GameOverCouroutine()
