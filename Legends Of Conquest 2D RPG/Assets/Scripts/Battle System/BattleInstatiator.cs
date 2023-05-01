@@ -15,6 +15,9 @@ public class BattleInstatiator : MonoBehaviour
     [SerializeField] bool deactivateAterStarting;
     [SerializeField] bool canRuAway;
 
+    [SerializeField] bool shouldCompleteQuest;
+    public string questToComplete;
+
     private void Start()
     {
         battleCouter = Random.Range(timeBetweenBattles * 0.5f, timeBetweenBattles * 1.5f);
@@ -44,6 +47,9 @@ public class BattleInstatiator : MonoBehaviour
 
         BattleManager.instance.itemsReward = avaiableBattles[selectBattle].rewardItems;
         BattleManager.instance.XPRewardsAmount = avaiableBattles[selectBattle].rewardXP;
+
+        BattleRewardsHandler.instance.markQuestAsComplete = shouldCompleteQuest;
+        BattleRewardsHandler.instance.questToComplete = questToComplete;
 
         yield return new WaitForSeconds(1.5f);
 

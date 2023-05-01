@@ -12,6 +12,9 @@ public class BattleRewardsHandler : MonoBehaviour
     [SerializeField] int xpReward;
     public static BattleRewardsHandler instance;
 
+    public bool markQuestAsComplete;
+    public string questToComplete;
+
     private void Start()
     {
         instance = this;
@@ -48,5 +51,10 @@ public class BattleRewardsHandler : MonoBehaviour
 
         rewardsScreen.SetActive(false);
         GameManager.instance.battleIsActive= false;
+
+        if (markQuestAsComplete)
+        {
+            QuestManager.instance.MarkQuestComplete(questToComplete);
+        }
     }
 }
