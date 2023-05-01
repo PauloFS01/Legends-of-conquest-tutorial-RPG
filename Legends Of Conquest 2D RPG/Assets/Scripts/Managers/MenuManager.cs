@@ -164,7 +164,12 @@ public class MenuManager : MonoBehaviour
         imageToFade.GetComponent<Animator>().SetTrigger("Start fading");
     }
 
-    
+    public void EndFade()
+    {
+        imageToFade.GetComponent<Animator>().SetTrigger("End fading");
+    }
+
+
     public void OpenCharacterChoicePanel()
     {
         characterChoicePanel.SetActive(true);
